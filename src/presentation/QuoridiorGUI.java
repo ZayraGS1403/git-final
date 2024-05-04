@@ -46,19 +46,17 @@ public class QuoridiorGUI extends JFrame {
     private JTextField textField1;
     private Color Jugador1;
     private JButton comenzar;
+    private JMenu menu;
 
     public QuoridiorGUI() {
         setTitle("QuoriAng Game");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-
-        quoridor = new Quoridor();
         // Preparar elementos del menú
-        menuBar = prepareElementsMenu();
-
         // Agregar la barra de menú a la ventana principal
-        setJMenuBar(menuBar);
+        setJMenuBar(prepareElementsMenu());
+        prepareActions();
         createButtons(); // Crear botones
         acciones(); // Acciones de los botones
 
@@ -143,8 +141,8 @@ public class QuoridiorGUI extends JFrame {
     }
 
     private JMenuBar prepareElementsMenu() {
-        JMenuBar menuBar = new JMenuBar();
-        JMenu menu = new JMenu("File");
+        menuBar = new JMenuBar();
+        menu = new JMenu("File");
 
         buttonNew = new JMenuItem("New");
         buttonOpen = new JMenuItem("Open");
@@ -180,8 +178,8 @@ public class QuoridiorGUI extends JFrame {
             }
         });
 
-        startButton.addActionListener(e -> mostrarTablero()); // Agregar acción al botón de comenzar
-        exitButton.addActionListener(e -> close()); // Agregar acción al botón de salir
+//        startButton.addActionListener(e -> mostrarTablero()); // Agregar acción al botón de comenzar
+//        exitButton.addActionListener(e -> close()); // Agregar acción al botón de salir
     }
 
     private MouseListener createMouseListener() {
